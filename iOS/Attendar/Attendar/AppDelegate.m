@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Scott Brugmans. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 
 #import "ViewController.h"
@@ -14,6 +15,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Parse setApplicationId:@"anWQYBQ68ZoMzuY1OO7245FXLcuwemmeP8fYfi75"
+                  clientKey:@"j9HrhQ1R6BQVYb4KHJPJh1QrpEuDfOhWN9cu206c"];
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];

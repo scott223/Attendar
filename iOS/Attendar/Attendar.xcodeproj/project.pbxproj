@@ -7,102 +7,158 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D226C0DC16BB0D7900B2C435 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C0DB16BB0D7900B2C435 /* UIKit.framework */; };
-		D226C0DE16BB0D7900B2C435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C0DD16BB0D7900B2C435 /* Foundation.framework */; };
-		D226C0E016BB0D7900B2C435 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C0DF16BB0D7900B2C435 /* CoreGraphics.framework */; };
-		D226C0E616BB0D7900B2C435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D226C0E416BB0D7900B2C435 /* InfoPlist.strings */; };
-		D226C0E816BB0D7900B2C435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C0E716BB0D7900B2C435 /* main.m */; };
-		D226C0EC16BB0D7900B2C435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C0EB16BB0D7900B2C435 /* AppDelegate.m */; };
-		D226C0EE16BB0D7900B2C435 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C0ED16BB0D7900B2C435 /* Default.png */; };
-		D226C0F016BB0D7900B2C435 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C0EF16BB0D7900B2C435 /* Default@2x.png */; };
-		D226C0F216BB0D7900B2C435 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C0F116BB0D7900B2C435 /* Default-568h@2x.png */; };
-		D226C0F516BB0D7900B2C435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C0F416BB0D7900B2C435 /* ViewController.m */; };
-		D226C0F816BB0D7900B2C435 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D226C0F616BB0D7900B2C435 /* ViewController.xib */; };
+		D226C13516BB143200B2C435 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C13416BB143200B2C435 /* UIKit.framework */; };
+		D226C13716BB143200B2C435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C13616BB143200B2C435 /* Foundation.framework */; };
+		D226C13916BB143200B2C435 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C13816BB143200B2C435 /* CoreGraphics.framework */; };
+		D226C13F16BB143200B2C435 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D226C13D16BB143200B2C435 /* InfoPlist.strings */; };
+		D226C14116BB143200B2C435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C14016BB143200B2C435 /* main.m */; };
+		D226C14516BB143200B2C435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C14416BB143200B2C435 /* AppDelegate.m */; };
+		D226C14716BB143200B2C435 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14616BB143200B2C435 /* Default.png */; };
+		D226C14916BB143200B2C435 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14816BB143200B2C435 /* Default@2x.png */; };
+		D226C14B16BB143200B2C435 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14A16BB143200B2C435 /* Default-568h@2x.png */; };
+		D226C14E16BB143200B2C435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C14D16BB143200B2C435 /* ViewController.m */; };
+		D226C15116BB143200B2C435 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D226C14F16BB143200B2C435 /* ViewController.xib */; };
+		D226C15816BB144900B2C435 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15716BB144900B2C435 /* Parse.framework */; };
+		D226C15A16BB146000B2C435 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15916BB146000B2C435 /* AudioToolbox.framework */; };
+		D226C15C16BB146400B2C435 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15B16BB146400B2C435 /* Accounts.framework */; };
+		D226C15E16BB146C00B2C435 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15D16BB146C00B2C435 /* AdSupport.framework */; };
+		D226C16016BB147100B2C435 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15F16BB147100B2C435 /* CFNetwork.framework */; };
+		D226C16216BB147B00B2C435 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16116BB147B00B2C435 /* CoreLocation.framework */; };
+		D226C16416BB148200B2C435 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16316BB148200B2C435 /* libsqlite3.dylib */; };
+		D226C16616BB148600B2C435 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16516BB148600B2C435 /* libz.1.1.3.dylib */; };
+		D226C16816BB148D00B2C435 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16716BB148D00B2C435 /* MobileCoreServices.framework */; };
+		D226C16A16BB149100B2C435 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16916BB149100B2C435 /* QuartzCore.framework */; };
+		D226C16C16BB149500B2C435 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16B16BB149500B2C435 /* Security.framework */; };
+		D226C16E16BB149900B2C435 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16D16BB149900B2C435 /* Social.framework */; };
+		D226C17016BB149E00B2C435 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16F16BB149E00B2C435 /* StoreKit.framework */; };
+		D226C17216BB14A300B2C435 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C17116BB14A300B2C435 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D226C0D716BB0D7900B2C435 /* Attendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D226C0DB16BB0D7900B2C435 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D226C0DD16BB0D7900B2C435 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D226C0DF16BB0D7900B2C435 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D226C0E316BB0D7900B2C435 /* Attendar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Attendar-Info.plist"; sourceTree = "<group>"; };
-		D226C0E516BB0D7900B2C435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D226C0E716BB0D7900B2C435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D226C0E916BB0D7900B2C435 /* Attendar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Attendar-Prefix.pch"; sourceTree = "<group>"; };
-		D226C0EA16BB0D7900B2C435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D226C0EB16BB0D7900B2C435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D226C0ED16BB0D7900B2C435 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		D226C0EF16BB0D7900B2C435 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		D226C0F116BB0D7900B2C435 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D226C0F316BB0D7900B2C435 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D226C0F416BB0D7900B2C435 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D226C0F716BB0D7900B2C435 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		D226C13016BB143200B2C435 /* Attendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D226C13416BB143200B2C435 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D226C13616BB143200B2C435 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D226C13816BB143200B2C435 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D226C13C16BB143200B2C435 /* Attendar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Attendar-Info.plist"; sourceTree = "<group>"; };
+		D226C13E16BB143200B2C435 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D226C14016BB143200B2C435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D226C14216BB143200B2C435 /* Attendar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Attendar-Prefix.pch"; sourceTree = "<group>"; };
+		D226C14316BB143200B2C435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D226C14416BB143200B2C435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D226C14616BB143200B2C435 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D226C14816BB143200B2C435 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D226C14A16BB143200B2C435 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D226C14C16BB143200B2C435 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D226C14D16BB143200B2C435 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D226C15016BB143200B2C435 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		D226C15716BB144900B2C435 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D226C15916BB146000B2C435 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D226C15B16BB146400B2C435 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D226C15D16BB146C00B2C435 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		D226C15F16BB147100B2C435 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D226C16116BB147B00B2C435 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D226C16316BB148200B2C435 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D226C16516BB148600B2C435 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		D226C16716BB148D00B2C435 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D226C16916BB149100B2C435 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D226C16B16BB149500B2C435 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D226C16D16BB149900B2C435 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D226C16F16BB149E00B2C435 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D226C17116BB14A300B2C435 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D226C0D416BB0D7900B2C435 /* Frameworks */ = {
+		D226C12D16BB143200B2C435 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D226C0DC16BB0D7900B2C435 /* UIKit.framework in Frameworks */,
-				D226C0DE16BB0D7900B2C435 /* Foundation.framework in Frameworks */,
-				D226C0E016BB0D7900B2C435 /* CoreGraphics.framework in Frameworks */,
+				D226C17216BB14A300B2C435 /* SystemConfiguration.framework in Frameworks */,
+				D226C17016BB149E00B2C435 /* StoreKit.framework in Frameworks */,
+				D226C16E16BB149900B2C435 /* Social.framework in Frameworks */,
+				D226C16C16BB149500B2C435 /* Security.framework in Frameworks */,
+				D226C16A16BB149100B2C435 /* QuartzCore.framework in Frameworks */,
+				D226C16816BB148D00B2C435 /* MobileCoreServices.framework in Frameworks */,
+				D226C16616BB148600B2C435 /* libz.1.1.3.dylib in Frameworks */,
+				D226C16416BB148200B2C435 /* libsqlite3.dylib in Frameworks */,
+				D226C16216BB147B00B2C435 /* CoreLocation.framework in Frameworks */,
+				D226C16016BB147100B2C435 /* CFNetwork.framework in Frameworks */,
+				D226C15E16BB146C00B2C435 /* AdSupport.framework in Frameworks */,
+				D226C15C16BB146400B2C435 /* Accounts.framework in Frameworks */,
+				D226C15A16BB146000B2C435 /* AudioToolbox.framework in Frameworks */,
+				D226C13516BB143200B2C435 /* UIKit.framework in Frameworks */,
+				D226C13716BB143200B2C435 /* Foundation.framework in Frameworks */,
+				D226C13916BB143200B2C435 /* CoreGraphics.framework in Frameworks */,
+				D226C15816BB144900B2C435 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D226C0CC16BB0D7900B2C435 = {
+		D226C12516BB143200B2C435 = {
 			isa = PBXGroup;
 			children = (
-				D226C0E116BB0D7900B2C435 /* Attendar */,
-				D226C0DA16BB0D7900B2C435 /* Frameworks */,
-				D226C0D816BB0D7900B2C435 /* Products */,
+				D226C17116BB14A300B2C435 /* SystemConfiguration.framework */,
+				D226C16F16BB149E00B2C435 /* StoreKit.framework */,
+				D226C16D16BB149900B2C435 /* Social.framework */,
+				D226C16B16BB149500B2C435 /* Security.framework */,
+				D226C16916BB149100B2C435 /* QuartzCore.framework */,
+				D226C16716BB148D00B2C435 /* MobileCoreServices.framework */,
+				D226C16516BB148600B2C435 /* libz.1.1.3.dylib */,
+				D226C16316BB148200B2C435 /* libsqlite3.dylib */,
+				D226C16116BB147B00B2C435 /* CoreLocation.framework */,
+				D226C15F16BB147100B2C435 /* CFNetwork.framework */,
+				D226C15D16BB146C00B2C435 /* AdSupport.framework */,
+				D226C15B16BB146400B2C435 /* Accounts.framework */,
+				D226C15916BB146000B2C435 /* AudioToolbox.framework */,
+				D226C13A16BB143200B2C435 /* Attendar */,
+				D226C13316BB143200B2C435 /* Frameworks */,
+				D226C13116BB143200B2C435 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D226C0D816BB0D7900B2C435 /* Products */ = {
+		D226C13116BB143200B2C435 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D226C0D716BB0D7900B2C435 /* Attendar.app */,
+				D226C13016BB143200B2C435 /* Attendar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D226C0DA16BB0D7900B2C435 /* Frameworks */ = {
+		D226C13316BB143200B2C435 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D226C0DB16BB0D7900B2C435 /* UIKit.framework */,
-				D226C0DD16BB0D7900B2C435 /* Foundation.framework */,
-				D226C0DF16BB0D7900B2C435 /* CoreGraphics.framework */,
+				D226C15716BB144900B2C435 /* Parse.framework */,
+				D226C13416BB143200B2C435 /* UIKit.framework */,
+				D226C13616BB143200B2C435 /* Foundation.framework */,
+				D226C13816BB143200B2C435 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D226C0E116BB0D7900B2C435 /* Attendar */ = {
+		D226C13A16BB143200B2C435 /* Attendar */ = {
 			isa = PBXGroup;
 			children = (
-				D226C0EA16BB0D7900B2C435 /* AppDelegate.h */,
-				D226C0EB16BB0D7900B2C435 /* AppDelegate.m */,
-				D226C0F316BB0D7900B2C435 /* ViewController.h */,
-				D226C0F416BB0D7900B2C435 /* ViewController.m */,
-				D226C0F616BB0D7900B2C435 /* ViewController.xib */,
-				D226C0E216BB0D7900B2C435 /* Supporting Files */,
+				D226C14316BB143200B2C435 /* AppDelegate.h */,
+				D226C14416BB143200B2C435 /* AppDelegate.m */,
+				D226C14C16BB143200B2C435 /* ViewController.h */,
+				D226C14D16BB143200B2C435 /* ViewController.m */,
+				D226C14F16BB143200B2C435 /* ViewController.xib */,
+				D226C13B16BB143200B2C435 /* Supporting Files */,
 			);
 			path = Attendar;
 			sourceTree = "<group>";
 		};
-		D226C0E216BB0D7900B2C435 /* Supporting Files */ = {
+		D226C13B16BB143200B2C435 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D226C0E316BB0D7900B2C435 /* Attendar-Info.plist */,
-				D226C0E416BB0D7900B2C435 /* InfoPlist.strings */,
-				D226C0E716BB0D7900B2C435 /* main.m */,
-				D226C0E916BB0D7900B2C435 /* Attendar-Prefix.pch */,
-				D226C0ED16BB0D7900B2C435 /* Default.png */,
-				D226C0EF16BB0D7900B2C435 /* Default@2x.png */,
-				D226C0F116BB0D7900B2C435 /* Default-568h@2x.png */,
+				D226C13C16BB143200B2C435 /* Attendar-Info.plist */,
+				D226C13D16BB143200B2C435 /* InfoPlist.strings */,
+				D226C14016BB143200B2C435 /* main.m */,
+				D226C14216BB143200B2C435 /* Attendar-Prefix.pch */,
+				D226C14616BB143200B2C435 /* Default.png */,
+				D226C14816BB143200B2C435 /* Default@2x.png */,
+				D226C14A16BB143200B2C435 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -110,13 +166,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D226C0D616BB0D7900B2C435 /* Attendar */ = {
+		D226C12F16BB143200B2C435 /* Attendar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D226C0FB16BB0D7900B2C435 /* Build configuration list for PBXNativeTarget "Attendar" */;
+			buildConfigurationList = D226C15416BB143200B2C435 /* Build configuration list for PBXNativeTarget "Attendar" */;
 			buildPhases = (
-				D226C0D316BB0D7900B2C435 /* Sources */,
-				D226C0D416BB0D7900B2C435 /* Frameworks */,
-				D226C0D516BB0D7900B2C435 /* Resources */,
+				D226C12C16BB143200B2C435 /* Sources */,
+				D226C12D16BB143200B2C435 /* Frameworks */,
+				D226C12E16BB143200B2C435 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -124,76 +180,76 @@
 			);
 			name = Attendar;
 			productName = Attendar;
-			productReference = D226C0D716BB0D7900B2C435 /* Attendar.app */;
+			productReference = D226C13016BB143200B2C435 /* Attendar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D226C0CE16BB0D7900B2C435 /* Project object */ = {
+		D226C12716BB143200B2C435 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Scott Brugmans";
 			};
-			buildConfigurationList = D226C0D116BB0D7900B2C435 /* Build configuration list for PBXProject "Attendar" */;
+			buildConfigurationList = D226C12A16BB143200B2C435 /* Build configuration list for PBXProject "Attendar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D226C0CC16BB0D7900B2C435;
-			productRefGroup = D226C0D816BB0D7900B2C435 /* Products */;
+			mainGroup = D226C12516BB143200B2C435;
+			productRefGroup = D226C13116BB143200B2C435 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D226C0D616BB0D7900B2C435 /* Attendar */,
+				D226C12F16BB143200B2C435 /* Attendar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D226C0D516BB0D7900B2C435 /* Resources */ = {
+		D226C12E16BB143200B2C435 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D226C0E616BB0D7900B2C435 /* InfoPlist.strings in Resources */,
-				D226C0EE16BB0D7900B2C435 /* Default.png in Resources */,
-				D226C0F016BB0D7900B2C435 /* Default@2x.png in Resources */,
-				D226C0F216BB0D7900B2C435 /* Default-568h@2x.png in Resources */,
-				D226C0F816BB0D7900B2C435 /* ViewController.xib in Resources */,
+				D226C13F16BB143200B2C435 /* InfoPlist.strings in Resources */,
+				D226C14716BB143200B2C435 /* Default.png in Resources */,
+				D226C14916BB143200B2C435 /* Default@2x.png in Resources */,
+				D226C14B16BB143200B2C435 /* Default-568h@2x.png in Resources */,
+				D226C15116BB143200B2C435 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D226C0D316BB0D7900B2C435 /* Sources */ = {
+		D226C12C16BB143200B2C435 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D226C0E816BB0D7900B2C435 /* main.m in Sources */,
-				D226C0EC16BB0D7900B2C435 /* AppDelegate.m in Sources */,
-				D226C0F516BB0D7900B2C435 /* ViewController.m in Sources */,
+				D226C14116BB143200B2C435 /* main.m in Sources */,
+				D226C14516BB143200B2C435 /* AppDelegate.m in Sources */,
+				D226C14E16BB143200B2C435 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D226C0E416BB0D7900B2C435 /* InfoPlist.strings */ = {
+		D226C13D16BB143200B2C435 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D226C0E516BB0D7900B2C435 /* en */,
+				D226C13E16BB143200B2C435 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D226C0F616BB0D7900B2C435 /* ViewController.xib */ = {
+		D226C14F16BB143200B2C435 /* ViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D226C0F716BB0D7900B2C435 /* en */,
+				D226C15016BB143200B2C435 /* en */,
 			);
 			name = ViewController.xib;
 			sourceTree = "<group>";
@@ -201,7 +257,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D226C0F916BB0D7900B2C435 /* Debug */ = {
+		D226C15216BB143200B2C435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +285,7 @@
 			};
 			name = Debug;
 		};
-		D226C0FA16BB0D7900B2C435 /* Release */ = {
+		D226C15316BB143200B2C435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,9 +307,13 @@
 			};
 			name = Release;
 		};
-		D226C0FC16BB0D7900B2C435 /* Debug */ = {
+		D226C15516BB143200B2C435 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Attendar/Attendar-Prefix.pch";
 				INFOPLIST_FILE = "Attendar/Attendar-Info.plist";
@@ -262,9 +322,13 @@
 			};
 			name = Debug;
 		};
-		D226C0FD16BB0D7900B2C435 /* Release */ = {
+		D226C15616BB143200B2C435 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Attendar/Attendar-Prefix.pch";
 				INFOPLIST_FILE = "Attendar/Attendar-Info.plist";
@@ -276,24 +340,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D226C0D116BB0D7900B2C435 /* Build configuration list for PBXProject "Attendar" */ = {
+		D226C12A16BB143200B2C435 /* Build configuration list for PBXProject "Attendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D226C0F916BB0D7900B2C435 /* Debug */,
-				D226C0FA16BB0D7900B2C435 /* Release */,
+				D226C15216BB143200B2C435 /* Debug */,
+				D226C15316BB143200B2C435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D226C0FB16BB0D7900B2C435 /* Build configuration list for PBXNativeTarget "Attendar" */ = {
+		D226C15416BB143200B2C435 /* Build configuration list for PBXNativeTarget "Attendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D226C0FC16BB0D7900B2C435 /* Debug */,
-				D226C0FD16BB0D7900B2C435 /* Release */,
+				D226C15516BB143200B2C435 /* Debug */,
+				D226C15616BB143200B2C435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D226C0CE16BB0D7900B2C435 /* Project object */;
+	rootObject = D226C12716BB143200B2C435 /* Project object */;
 }

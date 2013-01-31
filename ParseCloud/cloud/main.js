@@ -21,9 +21,12 @@ if (currentUser) {
  Parse.Cloud.httpRequest({
   url: 'https://graph.facebook.com/' +authData.facebook.id,
   params: {
+  
   	fields : 'id,name,email,gender,location,friends',
     access_token : authData.facebook.access_token
+  
   },
+  
   success: function(httpResponse) {
     
     //parse JSON
@@ -65,4 +68,4 @@ if (currentUser) {
   }
   
 });
-
+//end of pullFacebookData
