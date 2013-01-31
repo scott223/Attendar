@@ -5,7 +5,13 @@
 //  response.success("Hello world!");
 //});
 
-Parse.Cloud.define("registerUser", function(request, response) {
+
+//pullFacebookData()
+//Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
+//user refresh on client side recommended
+//returns succes(200) on succesfull pull or error(error) on error.
+
+Parse.Cloud.define("pullFacebookData", function(request, response) {
 
 var currentUser = Parse.User.current();
 if (currentUser) {
