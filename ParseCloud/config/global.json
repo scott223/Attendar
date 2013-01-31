@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Attendar": {
+            "applicationId": "anWQYBQ68ZoMzuY1OO7245FXLcuwemmeP8fYfi75", 
+            "masterKey": "1M3SbqsVimgb8EwhATr4YMlhY0e6SipsxNO152qq"
+        }, 
+        "_default": {
+            "link": "Attendar"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.1.16"
+    }
+}
