@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Parse/Parse.h>
 
 @interface ViewController ()
 
@@ -17,7 +18,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    if (!currentUser.email)
+    {
+        NSLog(@"Asking cloud to fetch user data from Facebook");
+        
+        [PFCloud callFunctionInBackground:@"pullFacebookData" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
+            if (!error)
+            {
+                NSLog(@"Cloud fetched user data, now requesting refresh");
+                [[PFUser currentUser] refreshInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                    if (!error) {
+                        NSLog(@"Local user data refreshed.");
+                    }
+                }];
+                
+            }
+        }];
+
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning

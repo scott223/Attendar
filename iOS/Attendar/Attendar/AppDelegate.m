@@ -13,21 +13,89 @@
 
 @implementation AppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"anWQYBQ68ZoMzuY1OO7245FXLcuwemmeP8fYfi75"
                   clientKey:@"j9HrhQ1R6BQVYb4KHJPJh1QrpEuDfOhWN9cu206c"];
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
+    [PFFacebookUtils initializeWithApplicationId:@"411385308948110"];
+    // ****************************************************************************
     
+    [PFUser enableAutomaticUser];
+    
+    PFACL *defaultACL = [PFACL ACL];
+    
+    // If you would like all objects to be private by default, remove this line.
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
+    [PFUser logOut];
+    
+    // Override point for customization after application launch.
+    
+    NSLog(@"Good morning SB");
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if ([currentUser username]) {
+        
+        NSString *name = [currentUser objectForKey:@"username"];
+        NSLog(@"User (%@) already present, no login needed, pushing  navigator", name);
+        
+        [self pushTabBar];
+        
+    } else {
+        NSLog(@"No user, signing in user with facebook");
+        
+        NSArray *permissions = [[NSArray alloc] initWithObjects:@"user_about_me",@"email", nil];
+        
+        [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+            if (!user) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook nodig"
+                                                                message:@"Je moet inloggen met je Facebook account om gebruik te maken van deze app."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                
+            } else {
+                NSLog(@"User logged in through Facebook, pushing navigator");
+                
+                [self pushTabBar];
+                
+            }
+        }];
+        
+    }
+
+    return YES;
+}
+
+- (void)pushTabBar
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    ViewController *nav = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];    
+    
+    NSArray *controllers = [NSArray arrayWithObjects:nav, nil];
+    
+    tabBarController.viewControllers = controllers;
+    
+    NSLog(@"pushing main view controller");  
+    
+    [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
-    return YES;
+    
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
