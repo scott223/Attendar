@@ -34,7 +34,7 @@ if (currentUser) {
 	currentUser.set("location",resultaat.location.name);
 	currentUser.set('fbID',parseInt(resultaat.id));
 	currentUser.save(null, {
-  success: function(currentUser) {
+    success: function(currentUser) {
     response.success('200');
   },
   error: function(currentUser, error) {
