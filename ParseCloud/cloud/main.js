@@ -26,13 +26,15 @@ Parse.Cloud.define("test", function(request, response) {
 	var module = require('cloud/user.js');
 	var Monster = module.MonsterFunc();
 	
-	console.log(Monster);
-	
 	var monster = Monster.spawn(200);
 	
 	console.log(monster);
 
+<<<<<<< HEAD
 	response.success(monster.strength);
+=======
+	response.success(monster.get("strength"));
+>>>>>>> dingen
 
 });
 
@@ -106,7 +108,8 @@ if (currentUser) {
 
 //Create event
 Parse.Cloud.define("createSingle", function(request, response){
-	var Event = require('cloud/event.js');	
+	var module = require('cloud/event.js');	
+	var Event = module.eventFunc();
 	console.log(Event);
 	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
 	console.log(event);
