@@ -2,7 +2,7 @@
 //@Author Bouke Nederstigt
 //@Copyright Bouke Nederstigt & Scott Brugmans 2013
 
-exports.eventFunc(){
+exports.eventfunc = function(){
 
 	var Event = Parse.Object.extend("Event",{
 		//instance methods
