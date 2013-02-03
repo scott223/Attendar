@@ -9,7 +9,9 @@
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "EventsTableViewController.h"
+#import "GroupsTableViewController.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 
@@ -30,9 +32,9 @@
     [defaultACL setPublicReadAccess:YES];
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
-    [PFUser logOut];
-    
     // Override point for customization after application launch.
+    
+    [PFUser logOut];
     
     NSLog(@"Good morning SB");
     
@@ -80,9 +82,17 @@
 
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
-    ViewController *nav = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];    
+    EventsTableViewController *events = [[EventsTableViewController alloc] initWithNibName:@"EventsTableViewController" bundle:nil];
     
-    NSArray *controllers = [NSArray arrayWithObjects:nav, nil];
+    UINavigationController *navEvents = [[UINavigationController alloc] initWithRootViewController:events];
+    
+    GroupsTableViewController *groups = [[GroupsTableViewController alloc] initWithNibName:@"GroupsTableViewController" bundle:nil];
+    
+    UINavigationController *navGroups = [[UINavigationController alloc] initWithRootViewController:groups];
+    
+    SettingsViewController *settings = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
+    
+    NSArray *controllers = [NSArray arrayWithObjects:navEvents, navGroups, settings, nil];
     
     tabBarController.viewControllers = controllers;
     

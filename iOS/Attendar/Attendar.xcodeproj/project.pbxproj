@@ -16,8 +16,6 @@
 		D226C14716BB143200B2C435 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14616BB143200B2C435 /* Default.png */; };
 		D226C14916BB143200B2C435 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14816BB143200B2C435 /* Default@2x.png */; };
 		D226C14B16BB143200B2C435 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D226C14A16BB143200B2C435 /* Default-568h@2x.png */; };
-		D226C14E16BB143200B2C435 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D226C14D16BB143200B2C435 /* ViewController.m */; };
-		D226C15116BB143200B2C435 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D226C14F16BB143200B2C435 /* ViewController.xib */; };
 		D226C15816BB144900B2C435 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15716BB144900B2C435 /* Parse.framework */; };
 		D226C15A16BB146000B2C435 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15916BB146000B2C435 /* AudioToolbox.framework */; };
 		D226C15C16BB146400B2C435 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C15B16BB146400B2C435 /* Accounts.framework */; };
@@ -32,6 +30,12 @@
 		D226C16E16BB149900B2C435 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16D16BB149900B2C435 /* Social.framework */; };
 		D226C17016BB149E00B2C435 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C16F16BB149E00B2C435 /* StoreKit.framework */; };
 		D226C17216BB14A300B2C435 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C17116BB14A300B2C435 /* SystemConfiguration.framework */; };
+		D296578B16BE672E00017429 /* EventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D296578916BE672E00017429 /* EventsTableViewController.m */; };
+		D296578C16BE672E00017429 /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D296578A16BE672E00017429 /* EventsTableViewController.xib */; };
+		D296579016BE6BE900017429 /* GroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D296578E16BE6BE900017429 /* GroupsTableViewController.m */; };
+		D296579116BE6BE900017429 /* GroupsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D296578F16BE6BE900017429 /* GroupsTableViewController.xib */; };
+		D296579516BE6D8700017429 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D296579316BE6D8700017429 /* SettingsViewController.m */; };
+		D296579616BE6D8700017429 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D296579416BE6D8700017429 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,9 +52,6 @@
 		D226C14616BB143200B2C435 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D226C14816BB143200B2C435 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D226C14A16BB143200B2C435 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D226C14C16BB143200B2C435 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D226C14D16BB143200B2C435 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D226C15016BB143200B2C435 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		D226C15716BB144900B2C435 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D226C15916BB146000B2C435 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D226C15B16BB146400B2C435 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -65,6 +66,15 @@
 		D226C16D16BB149900B2C435 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D226C16F16BB149E00B2C435 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D226C17116BB14A300B2C435 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D296578816BE672E00017429 /* EventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTableViewController.h; sourceTree = "<group>"; };
+		D296578916BE672E00017429 /* EventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewController.m; sourceTree = "<group>"; };
+		D296578A16BE672E00017429 /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
+		D296578D16BE6BE900017429 /* GroupsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsTableViewController.h; sourceTree = "<group>"; };
+		D296578E16BE6BE900017429 /* GroupsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsTableViewController.m; sourceTree = "<group>"; };
+		D296578F16BE6BE900017429 /* GroupsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupsTableViewController.xib; sourceTree = "<group>"; };
+		D296579216BE6D8700017429 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D296579316BE6D8700017429 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		D296579416BE6D8700017429 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +151,15 @@
 			children = (
 				D226C14316BB143200B2C435 /* AppDelegate.h */,
 				D226C14416BB143200B2C435 /* AppDelegate.m */,
-				D226C14C16BB143200B2C435 /* ViewController.h */,
-				D226C14D16BB143200B2C435 /* ViewController.m */,
-				D226C14F16BB143200B2C435 /* ViewController.xib */,
+				D296579216BE6D8700017429 /* SettingsViewController.h */,
+				D296579316BE6D8700017429 /* SettingsViewController.m */,
+				D296579416BE6D8700017429 /* SettingsViewController.xib */,
+				D296578816BE672E00017429 /* EventsTableViewController.h */,
+				D296578916BE672E00017429 /* EventsTableViewController.m */,
+				D296578A16BE672E00017429 /* EventsTableViewController.xib */,
+				D296578D16BE6BE900017429 /* GroupsTableViewController.h */,
+				D296578E16BE6BE900017429 /* GroupsTableViewController.m */,
+				D296578F16BE6BE900017429 /* GroupsTableViewController.xib */,
 				D226C13B16BB143200B2C435 /* Supporting Files */,
 			);
 			path = Attendar;
@@ -218,7 +234,9 @@
 				D226C14716BB143200B2C435 /* Default.png in Resources */,
 				D226C14916BB143200B2C435 /* Default@2x.png in Resources */,
 				D226C14B16BB143200B2C435 /* Default-568h@2x.png in Resources */,
-				D226C15116BB143200B2C435 /* ViewController.xib in Resources */,
+				D296578C16BE672E00017429 /* EventsTableViewController.xib in Resources */,
+				D296579116BE6BE900017429 /* GroupsTableViewController.xib in Resources */,
+				D296579616BE6D8700017429 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +249,9 @@
 			files = (
 				D226C14116BB143200B2C435 /* main.m in Sources */,
 				D226C14516BB143200B2C435 /* AppDelegate.m in Sources */,
-				D226C14E16BB143200B2C435 /* ViewController.m in Sources */,
+				D296578B16BE672E00017429 /* EventsTableViewController.m in Sources */,
+				D296579016BE6BE900017429 /* GroupsTableViewController.m in Sources */,
+				D296579516BE6D8700017429 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +264,6 @@
 				D226C13E16BB143200B2C435 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D226C14F16BB143200B2C435 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D226C15016BB143200B2C435 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -318,6 +330,7 @@
 				GCC_PREFIX_HEADER = "Attendar/Attendar-Prefix.pch";
 				INFOPLIST_FILE = "Attendar/Attendar-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -333,6 +346,7 @@
 				GCC_PREFIX_HEADER = "Attendar/Attendar-Prefix.pch";
 				INFOPLIST_FILE = "Attendar/Attendar-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -356,6 +370,7 @@
 				D226C15616BB143200B2C435 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,11 +1,15 @@
 //Attendar Cloud Code
 //Copyright Scott Brugmans  & Bouke Nederstigt 2013
 
+//pullEvents
+Parse.Cloud.Define("pullEvents", function(request, response) {
+
+}
+
 //pullFacebookData()
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
 //user refresh on client side recommended!
 //returns succes(200) on successfull pull or error(error) on error.
-
 Parse.Cloud.define("pullFacebookData", function(request, response) {
 
 //pulls current user adata
