@@ -1,25 +1,20 @@
 package com.example.attendar;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
-
-import com.parse.Parse;
-import com.parse.ParseObject;
-import com.parse.PushService;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-    @Override
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        Parse.initialize(this, "anWQYBQ68ZoMzuY1OO7245FXLcuwemmeP8fYfi75", "j9HrhQ1R6BQVYb4KHJPJh1QrpEuDfOhWN9cu206c");        
-        
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo123", "bar");
-        testObject.saveInBackground();
+        setContentView(R.layout.activity_main);        
     }
 
     @Override
@@ -27,6 +22,16 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
+    }
+    
+    /*Called when user clicks send button */
+    public void sendMessage(View view){
+    	
+    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+    	EditText editText = (EditText) findViewById(R.id.edit_message);
+    	String message = editText.getText().toString();
+    	intent.putExtra(EXTRA_MESSAGE, message);
+    	startActivity(intent);
     }
     
 }

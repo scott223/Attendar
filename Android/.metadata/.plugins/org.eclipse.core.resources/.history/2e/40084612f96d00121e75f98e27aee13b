@@ -1,0 +1,41 @@
+//Attendar events
+//@Author Bouke Nederstigt
+//@Copyright Bouke Nederstigt & Scott Brugmans 2013
+
+
+var Event = Parse.Object.extend("Event",{
+	
+	//create recurring event
+	createEvent: function(name, expression, owner, start, location){
+		
+	},
+	
+	//create single event
+	createSingle: function(name, owner, start, location){
+		
+	},
+	
+	//retrieve single evente
+	//contains all event data, invitees and responses
+	singleEvent: function (event){
+		
+	},
+	
+	//return all events within a certain timespan
+	retrieveEvents: function(range){
+		
+	},
+	
+	//remove event
+	removeEvent: function (event){
+		
+	},
+	
+	//edit event
+	editEvent: function (event, name, expression, owner, start, location){
+		
+	}
+	
+	
+});
+

@@ -1,0 +1,31 @@
+/*
+* Attendar event handler
+* @Author Bouke Nederstigt
+* @Copyright Bouke Nederstigt & Scott Brugmans 2013
+*/
+
+//create master event
+Parse.Cloud.define("createEvent", function(request, response){
+	
+});
+
+//retrieve single event 
+//contains all event data, invitees and responses
+Parse.Cloud.define("retrieveEvent", function(request, response){
+	
+});
+
+//remove event
+Parse.Cloud.define("removeEvent", function(request, response){
+	
+});
+
+//edit event
+Parse.Cloud.define("removeEvent", function(request, response){
+	
+});
+
+//Function to validate event
+Parse.Cloud.beforeSave("Event", function(request, response){
+	
+});

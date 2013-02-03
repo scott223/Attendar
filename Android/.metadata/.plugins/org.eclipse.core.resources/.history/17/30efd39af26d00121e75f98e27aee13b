@@ -1,0 +1,31 @@
+
+//Attendar event handler
+//@Author Bouke Nederstigt
+//@Copyright Bouke Nederstigt & Scott Brugmans 2013
+
+//create master event
+function createEvent(eventData){
+	
+};
+
+//retrieve single event 
+//contains all event data, invitees and responses
+function singleEvent(event){
+	
+}
+
+
+//return al events within a certain timespan
+function retrieveEvents(range){
+	
+};
+
+//remove event
+function removeEvent(){
+	
+};
+
+//edit event
+function editEvent(Event){
+	
+}

@@ -1,0 +1,29 @@
+//Attendar events
+//@Author Bouke Nederstigt
+//@Copyright Bouke Nederstigt & Scott Brugmans 2013
+
+//create master event
+exports.createEvent =  function(eventData){
+	
+};
+
+//retrieve single event 
+//contains all event data, invitees and responses
+exports.singleEvent = function(event){
+	
+};
+
+//return all events within a certain timespan
+exports. retrieveEvents = function(range){
+	
+};
+
+//remove event
+exports.removeEvent = function(){
+	
+};
+
+//edit event
+exports.editEvent = function (Event){
+	
+};
