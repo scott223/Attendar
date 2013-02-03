@@ -9,12 +9,6 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 	var Events = { };
 	for (var i = 0; i<5; i++) {
 		var Event = { };
-<<<<<<< HEAD
-
-		Event.title = 'Avond eten' +i;
-=======
-		
->>>>>>> 2c18f8a6c45d43c2a6fc45f0643485d90bc85681
 
 		Event.title = 'Avond eten ' + i;
 
@@ -32,7 +26,11 @@ Parse.Cloud.define("test", function(request, response) {
 	var module = require('cloud/user.js');
 	var Monster = module.MonsterFunc();
 	
+	console.log(Monster);
+	
 	var monster = Monster.spawn(200);
+	
+	console.log(monster);
 
 	response.success(monster.strength());
 
