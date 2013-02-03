@@ -1,7 +1,7 @@
 //Attendar Cloud Code
 //Copyright Scott Brugmans  & Bouke Nederstigt 2013
 
-
+require('cloud/event.js');
 
 //pullEvents
 Parse.Cloud.define("pullEvents", function(request, response) {
@@ -90,9 +90,8 @@ if (currentUser) {
 
 //Create event
 Parse.Cloud.define("createSingle", function(request, response){
-	var Event = require('cloud/event.js');	
-	console.log(Event);
+	
 	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
-	console.log(event);
-	response.success(event);
+	
+	response.succes(event);
 });

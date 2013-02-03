@@ -90,9 +90,8 @@ if (currentUser) {
 
 //Create event
 Parse.Cloud.define("createSingle", function(request, response){
-	var Event = require('cloud/event.js');	
-	console.log(Event);
+	var Event = require('cloud/event.js');
 	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
-	console.log(event);
+	
 	response.success(event);
 });

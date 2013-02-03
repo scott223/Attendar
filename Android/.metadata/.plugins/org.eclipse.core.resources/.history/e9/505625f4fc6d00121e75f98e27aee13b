@@ -1,8 +1,6 @@
 //Attendar Cloud Code
 //Copyright Scott Brugmans  & Bouke Nederstigt 2013
 
-
-
 //pullEvents
 Parse.Cloud.define("pullEvents", function(request, response) {
 
@@ -10,7 +8,7 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 	for (var i = 0; i<5; i++) {
 		var Event = { };
 		
-		Event.title = 'Avond eten' +i;
+		Event.title = 'Avond eten';
 		Event.id = i;
 		
 		Events[i] = Event;
@@ -87,12 +85,3 @@ if (currentUser) {
   
 });
 //end of pullFacebookData
-
-//Create event
-Parse.Cloud.define("createSingle", function(request, response){
-	var Event = require('cloud/event.js');	
-	console.log(Event);
-	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
-	console.log(event);
-	response.success(event);
-});
