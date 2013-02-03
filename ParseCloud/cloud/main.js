@@ -8,7 +8,7 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 	for (var i = 0; i<5; i++) {
 		var Event = { };
 		
-		Event.title = 'Avond eten';
+		Event.title = 'Avond eten' +i;
 		Event.id = i;
 		
 		Events[i] = Event;
