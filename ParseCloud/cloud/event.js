@@ -29,18 +29,18 @@ exports.Event = Parse.Object.extend("Event",{
 	 */
 	createSingle: function(name, start, location){
 		//instantiate new event
-		var Event = new Event();
+		var event = new Event();
 		
 		//pulls current user data
 		var currentUser = Parse.User.current();
 		
 		//set data
-		Event.set("name", name);		
-		Event.set("owner", currentUser);
-		Event.set("start", start);
-		Event.set("location", location);
+		event.set("name", name);		
+		event.set("owner", currentUser);
+		event.set("start", start);
+		event.set("location", location);
 		
-		Event.save(null, {
+		event.save(null, {
 			success: function(Event){
 				return Event;
 			},
