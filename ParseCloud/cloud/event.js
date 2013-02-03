@@ -70,3 +70,5 @@ var Event = Parse.Object.extend("Event",{
 	return Event;
 });
 
+}
+

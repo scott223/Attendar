@@ -22,6 +22,14 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 		
 });
 
+Parse.Cloud.define("test", function(request, response) {
+
+	var module = require('cloud/user.js');
+	
+	response.success(module.Test());
+
+});
+
 //pullFacebookData()
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
 //user refresh on client side recommended!
