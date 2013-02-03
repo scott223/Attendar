@@ -33,9 +33,7 @@
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
     // Override point for customization after application launch.
-    
-    [PFUser logOut];
-    
+        
     NSLog(@"Good morning SB");
     
     PFUser *currentUser = [PFUser currentUser];

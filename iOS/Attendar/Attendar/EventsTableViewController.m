@@ -54,7 +54,14 @@
             
             
         }
+        
+        NSString *eventsJSON = [NSString alloc];
+        
+        eventsJSON = [PFCloud callFunction:@"pullEvents" withParameters:[NSDictionary new]];
     
+        //NSLog(events);
+        
+        
     
     
     

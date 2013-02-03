@@ -2,9 +2,21 @@
 //Copyright Scott Brugmans  & Bouke Nederstigt 2013
 
 //pullEvents
-Parse.Cloud.Define("pullEvents", function(request, response) {
+Parse.Cloud.define("pullEvents", function(request, response) {
 
-}
+	var Events = { };
+	for (var i = 0; i<5; i++) {
+		var Event = { };
+		
+		Event.title = 'Avond eten';
+		Event.id = i;
+		
+		Events[i] = Event;
+	}
+	
+	response.success(Events);
+		
+});
 
 //pullFacebookData()
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
