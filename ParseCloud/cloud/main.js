@@ -30,8 +30,11 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 Parse.Cloud.define("test", function(request, response) {
 
 	var module = require('cloud/user.js');
+	var Monster = module.MonsterFunc();
 	
-	response.success(module.Test());
+	var monster = Monster.spawn(200);
+
+	response.success(monster.strength());
 
 });
 
