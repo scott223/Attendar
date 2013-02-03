@@ -15,12 +15,16 @@
 @end
 
 @implementation EventsTableViewController
+@synthesize eventList;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        eventList = [[NSMutableArray alloc] init];
+        
         [[self navigationItem] setTitle:@"Events"];
         
         self.title = @"Events";
@@ -55,13 +59,37 @@
             
         }
         
-        NSString *eventsJSON = [NSString alloc];
+        NSLog(@"Pulling new events");
         
-        eventsJSON = [PFCloud callFunction:@"pullEvents" withParameters:[NSDictionary new]];
-    
-        //NSLog(events);
+        [ai startAnimating];
         
-        
+        [PFCloud callFunctionInBackground:@"pullEvents" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
+            
+            if (!error){
+                
+                NSLog(@"Event data recieved, parsing...");
+                
+                NSDictionary *results = [NSDictionary alloc];
+                results = object;
+                
+                eventList = nil;
+                eventList = [[NSMutableArray alloc] init];
+                
+                for (id key in results) {
+                    
+                    [eventList addObject:[results objectForKey:key]];
+                    
+                }
+                
+                [self.tableView reloadData];
+                [ai stopAnimating];
+                
+               // NSLog([events objectAtIndex:0]);
+            }
+            
+            
+            
+        }];
     
     
     
@@ -101,14 +129,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 2;
+    return [eventList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,6 +148,8 @@
     }
     
     // Configure the cell...
+    
+    cell.textLabel.text = [[eventList objectAtIndex:[indexPath row]] objectForKey:@"title"];
     
     return cell;
 }
