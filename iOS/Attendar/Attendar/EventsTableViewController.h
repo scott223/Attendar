@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventsTableViewController : UITableViewController
+@interface EventsTableViewController : UITableViewController {
+    NSMutableArray *eventList;
+}
+
+
+@property (nonatomic, retain) NSMutableArray *eventList;
 
 @end
