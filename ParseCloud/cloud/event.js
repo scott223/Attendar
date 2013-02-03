@@ -3,7 +3,9 @@
 //@Copyright Bouke Nederstigt & Scott Brugmans 2013
 
 
-exports.Event = Parse.Object.extend("Event",{
+exports.Event = function() {
+
+var Event = Parse.Object.extend("Event",{
 	//instance methods
 	
 	//retrieve single event
@@ -65,5 +67,6 @@ exports.Event = Parse.Object.extend("Event",{
 		
 	}	
 	
+	return Event;
 });
 
