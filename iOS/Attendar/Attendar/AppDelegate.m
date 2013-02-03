@@ -69,6 +69,18 @@
         }];
         
     }
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:@"Avondeten" forKey:@"name"];
+    [params setObject:@"Oude Delft 223" forKey:@"location"];
+    [params setObject:@"29/1/2012" forKey:@"start"];
+    
+    [PFCloud callFunctionInBackground:@"createSingle" withParameters:params block:^(id object, NSError *error) {
+        
+        NSLog(@"Create single results: %@",object);
+        
+    }];
 
     return YES;
 }
