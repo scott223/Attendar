@@ -9,8 +9,12 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 	var Events = { };
 	for (var i = 0; i<5; i++) {
 		var Event = { };
+<<<<<<< HEAD
 
 		Event.title = 'Avond eten' +i;
+=======
+		
+>>>>>>> 2c18f8a6c45d43c2a6fc45f0643485d90bc85681
 
 		Event.title = 'Avond eten ' + i;
 
@@ -21,6 +25,14 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 	
 	response.success(Events);
 		
+});
+
+Parse.Cloud.define("test", function(request, response) {
+
+	var module = require('cloud/user.js');
+	
+	response.success(module.Test());
+
 });
 
 //pullFacebookData()
