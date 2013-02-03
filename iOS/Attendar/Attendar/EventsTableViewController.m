@@ -73,7 +73,7 @@
                 results = object;
                 
                 eventList = nil;
-                //eventList = [NSMutableArray alloc];
+                eventList = [[NSMutableArray alloc] init];
                 
                 for (id key in results) {
                     
@@ -148,6 +148,8 @@
     }
     
     // Configure the cell...
+    
+    cell.textLabel.text = [[eventList objectAtIndex:[indexPath row]] objectForKey:@"title"];
     
     return cell;
 }
