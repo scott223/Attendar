@@ -63,7 +63,7 @@
         
         [ai startAnimating];
         
-        /*
+        
         
         [PFCloud callFunctionInBackground:@"pullEvents" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
             
@@ -93,7 +93,7 @@
             
         }];
          
-         */
+         
     
     
     

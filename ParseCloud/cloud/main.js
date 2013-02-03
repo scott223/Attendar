@@ -3,6 +3,7 @@
 
 var usermodule = require('cloud/user.js');
 var eventmodule = require('cloud/event.js');
+var Event = eventmodule.eventfunc();
 
 //pullEvents
 Parse.Cloud.define("pullEvents", function(request, response) {
@@ -22,19 +23,6 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 		
 });
 
-Parse.Cloud.define("test", function(request, response) {
-
-	var Monster = usermodule.MonsterFunc();
-	
-	console.log(Monster);
-	
-	var monster = Monster.spawn(200);
-	
-	console.log(monster);
-
-	response.success(monster.get("strength"));
-
-});
 
 //pullFacebookData()
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
@@ -106,10 +94,7 @@ if (currentUser) {
 
 //Create event
 Parse.Cloud.define("createSingle", function(request, response){
-	
-	var Event = eventmodule.eventfunc();
-	
-	console.log(Event);
+		
 	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
 	console.log(event);
 	response.success(event);
