@@ -32,7 +32,7 @@ Parse.Cloud.define("test", function(request, response) {
 	
 	console.log(monster);
 
-	response.success(monster.strength());
+	response.success(monster.strength);
 
 });
 
