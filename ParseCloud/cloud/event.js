@@ -2,9 +2,9 @@
 //@Author Bouke Nederstigt
 //@Copyright Bouke Nederstigt & Scott Brugmans 2013
 exports.eventFunc = function () {
-	var Event = Parse.Object.extend("Event", {
+	var Event = Parse.Object.extend( {
+		className: "Event",
         //instance methods
-
 
         //retrieve single event
         //contains all event data, invitees and responses
@@ -12,27 +12,12 @@ exports.eventFunc = function () {
 
         },
         
-        //return all events within a certain timespan
-        retrieveEvents: function() {
-        
-        	console.log('retrieving events');
+        retrieveEvents: function (){
         	
-            var query = new Parse.Query("Event");
-            //var currentUser = Parse.User.current();	
         	
-        	//query.equalTo("owner",currentUser);
-        	
-        	query.find({
-  				success: function(results) {
-  					return(results);
-  				},
-  				error: function(error) {
-    				return(error);
-  				}
-			});   	
 
         }
-
+        
     }, {
         //class methods
 

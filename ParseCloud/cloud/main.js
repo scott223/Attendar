@@ -7,13 +7,23 @@ var usersModule = require('cloud/user.js');
 
 //pullEvents
 Parse.Cloud.define("retrieveEvents", function (request, response) {
-    
-    var event = new Event();
-	var events = event.retrieveEvents();
 	
-	response.success(events);
+	var currentUser = Parse.User.current();
+	var query = new Parse.Query(Event);            
+		
+	query.equalTo("owner",currentUser);	
+	
+	query.find({		
+		success: function(results) {				
+			response.success(results);
+		},
+		error: function(error) {			
+			response.error(error);
+		}
+	}); 
 
 });
+
 
 //registerNewUser
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
