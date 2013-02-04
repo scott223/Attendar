@@ -51,3 +51,10 @@ Parse.Cloud.define("createSingleEvent", function (request, response) {
     });
 });
 
+/*
+ * Create event, possible recurrent
+ */
+Parse.Cloud.define("createEvent", function(request, response){
+	
+});
+

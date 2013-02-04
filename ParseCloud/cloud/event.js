@@ -22,8 +22,36 @@ exports.eventFunc = function () {
         //class methods
 
         //create recurring event
-        createEvent: function (name, expression, owner, start, location) {
-
+        createEvent: function (title, recurring, repeat_every, repeat_on, owner, start_on, location, invites) {
+        	var moment = require('moment');
+        	var event = new Event();
+        	
+        	
+        	//set title
+        	event.set("title", title);
+        	
+        	//set location
+        	
+        	//set invites
+        	
+        	//set owner
+        	var currentUser = Parse.User.current();
+        	event.set("owner", currentUser);
+        	
+        	//set start on
+        	
+        	//set end on
+        	
+        	//set recurring type
+        	
+        	//set recurring
+        	
+        	//set repeat-every
+        	
+        	//set repeat-on
+        	
+        	
+        	
         },
 
         /*
@@ -55,8 +83,6 @@ exports.eventFunc = function () {
 
             return event;
         },
-
-
 
         //remove event
         removeEvent: function (event) {
