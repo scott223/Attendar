@@ -1,6 +1,9 @@
 //Attendar Cloud Code
 //Copyright Scott Brugmans  & Bouke Nederstigt 2013
+var eventModule = require('cloud/event.js');
+var Event = eventModule.eventFunc();
 
+<<<<<<< HEAD
 var usermodule = require('cloud/user.js');
 var eventmodule = require('cloud/event.js');
 var Event = eventmodule.eventfunc();
@@ -23,75 +26,47 @@ Parse.Cloud.define("pullEvents", function(request, response) {
 		
 });
 
+=======
+var usersModule = require('cloud/user.js');
 
-//pullFacebookData()
+//pullEvents
+Parse.Cloud.define("retrieveEvents", function (request, response) {
+    
+    var event = new Event();
+	var events = event.retrieveEvents();
+	
+	response.success(events);
+
+});
+>>>>>>> heleboel
+
+
+//registerNewUser
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
 //user refresh on client side recommended!
 //returns succes(200) on successfull pull or error(error) on error.
-Parse.Cloud.define("pullFacebookData", function(request, response) {
-
-//pulls current user adata
-var currentUser = Parse.User.current();
-
-//check if user is found
-if (currentUser) {
-    
-    //get user facebook auth data
-    var authData = currentUser.get("authData");
-    
- //make a new facebook request with the user auth data and request fields
- Parse.Cloud.httpRequest({
-  url: 'https://graph.facebook.com/' +authData.facebook.id,
-  params: {
-  
-  	fields : 'id,name,email,gender,location,friends',
-    access_token : authData.facebook.access_token
-  
-  },
-  
-  success: function(httpResponse) {
-    
-    //parse JSON
-    resultaat = JSON.parse(httpResponse.text);
-    
-	currentUser.set("fbFriendsArray",resultaat.friends.data);
-	currentUser.set("email",resultaat.email);
-	currentUser.set("name",resultaat.name);
-	currentUser.set("gender",resultaat.gender);
-	currentUser.set("location",resultaat.location.name);
-	currentUser.set('fbID',parseInt(resultaat.id));
-	
-	//save current user
-	currentUser.save(null, {
-    
-    	success: function(currentUser) {
-    	response.success('200');
-    	
-  },
-  error: function(currentUser, error) {
-    
-    //return error in saving
-    response.error(error);
-  }
+Parse.Cloud.define("registerNewUser", function (request, response) {
+    usersModule.registerNewUser(response);
 });
 
-  },
-  error: function(httpResponse) {
-    
-    //save httpresponse error
-    console.error('Request failed with response code ' + httpResponse.status);
-  }
-});
-    
- } else {
-  
-  //return error because user not found
-  response.error('user not found');
-  }
-  
-});
-//end of pullFacebookData
+//Create event
+//@param name event name
+//@param datetime date and time of event
+//@param location location of event
+Parse.Cloud.define("createSingleEvent", function (request, response) {
 
+    var event = Event.createSingleEvent(request.params.name, request.params.datetime, request.params.location);
+
+    event.save(null, {
+        success: function (event) {
+            response.success('200');
+        },
+        error: function (event, error) {
+            response.error(error);
+        }
+    });
+
+<<<<<<< HEAD
 //Create event
 Parse.Cloud.define("createSingle", function(request, response){
 		
@@ -99,3 +74,7 @@ Parse.Cloud.define("createSingle", function(request, response){
 	console.log(event);
 	response.success(event);
 });
+=======
+
+});
+>>>>>>> heleboel

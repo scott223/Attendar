@@ -42,7 +42,7 @@
             
             NSLog(@"Asking cloud to fetch user data from Facebook");
             
-            [PFCloud callFunctionInBackground:@"pullFacebookData" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
+            [PFCloud callFunctionInBackground:@"registerNewUser" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
                 if (!error)
                 {
                     NSLog(@"Cloud fetched user data, now requesting refresh");
@@ -64,6 +64,8 @@
         [ai startAnimating];
         
         
+        
+        /*
         
         [PFCloud callFunctionInBackground:@"pullEvents" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
             
@@ -92,6 +94,8 @@
             
             
         }];
+         
+         */
          
          
     

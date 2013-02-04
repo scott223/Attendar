@@ -72,13 +72,28 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
+    /*
+    
     [params setObject:@"Avondeten" forKey:@"name"];
     [params setObject:@"Oude Delft 223" forKey:@"location"];
-    [params setObject:@"29/1/2012" forKey:@"start"];
+    [params setObject:@"October 13, 1975 11:13:00" forKey:@"datetime"];
     
-    [PFCloud callFunctionInBackground:@"test" withParameters:params block:^(id object, NSError *error) {
+    [PFCloud callFunctionInBackground:@"createSingleEvent" withParameters:params block:^(id object, NSError *error) {
         
-        NSLog(@"Create single results: %@",object);
+        if (!error) {
+            NSLog(@"singe event created");
+        } else {
+            NSLog(@"Create single results returned error: %@",object);
+        }
+        
+    }];
+    
+    */
+    
+    
+    [PFCloud callFunctionInBackground:@"retrieveEvents" withParameters:params block:^(id object, NSError *error) {
+        
+        NSLog(@"retrieved events: %@",object);
         
     }];
 
