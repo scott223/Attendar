@@ -3,30 +3,6 @@
 var eventModule = require('cloud/event.js');
 var Event = eventModule.eventFunc();
 
-<<<<<<< HEAD
-var usermodule = require('cloud/user.js');
-var eventmodule = require('cloud/event.js');
-var Event = eventmodule.eventfunc();
-
-//pullEvents
-Parse.Cloud.define("pullEvents", function(request, response) {
-
-	var Events = { };
-	for (var i = 0; i<5; i++) {
-		var Event = { };
-
-		Event.title = 'Avond eten ' + i;
-
-		Event.id = i;
-		
-		Events[i] = Event;
-	}
-	
-	response.success(Events);
-		
-});
-
-=======
 var usersModule = require('cloud/user.js');
 
 //pullEvents
@@ -38,8 +14,6 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
 	response.success(events);
 
 });
->>>>>>> heleboel
-
 
 //registerNewUser
 //Pulls current user facebook data (name, email, gender, location, fbID & friends) and adds this to local parse database
@@ -65,16 +39,5 @@ Parse.Cloud.define("createSingleEvent", function (request, response) {
             response.error(error);
         }
     });
-
-<<<<<<< HEAD
-//Create event
-Parse.Cloud.define("createSingle", function(request, response){
-		
-	var event = Event.createSingle(request.params.name, request.params.start, request.params.location);
-	console.log(event);
-	response.success(event);
 });
-=======
 
-});
->>>>>>> heleboel
