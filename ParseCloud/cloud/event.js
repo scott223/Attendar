@@ -44,6 +44,7 @@ exports.eventFunc = function () {
         	}   	
         	        	
         	//set owner
+        	
         	var currentUser = Parse.User.current();       
         	//event.set("owner", currentUser);
         	
@@ -54,13 +55,13 @@ exports.eventFunc = function () {
         	
         	//start_on = new Date(start_on);
         	//create date/moment object and check if supplied date is valid
-        	start_on = moment(start_on, "YYYY-MM-DDTHH:mm");
+        	start_on = moment(start_on);
         	if(moment(start_on).isValid() != false){
         		event.set("start_on", start_on); 
         	}      
          	
         	//set recurring type
-            if(recurring == single || recurring == daily || recurring == monthly){
+            if(recurring == "single" || recurring == "daily" || recurring == "weekly" || recurring == "monthly"){
             	event.set("recurring", recurring);
             }
             
@@ -113,13 +114,16 @@ exports.eventFunc = function () {
             var currentUser = Parse.User.current();
 
             //set data
+            //set data
             event.set("title", title);
             event.set("owner", currentUser);
-            event.set("recurring", single);
             
-            start_on = new Date(start_on);            
-            event.set("start_on", start_on);
-            event.set("location", location);
+            event.set("recurring","single");
+            event.set("start_on",new Date(datetime));
+        	event.set("location", location); 
+        	
+            var expression = { };
+            event.set("expression", expression);
 
             return event;
         },
