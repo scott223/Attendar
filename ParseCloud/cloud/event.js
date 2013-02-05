@@ -55,9 +55,19 @@ exports.eventFunc = function () {
         	
         	//start_on = new Date(start_on);
         	//create date/moment object and check if supplied date is valid
+        	
+        	// !!!!!
+        	
+        	//TODO!!! WEEKLY AND MONTHLY REPEATS START DATE SHOULD ALWAYS BE THE FIRST DAY OF THAT WEEK OR MONTH 
+        	//FOR WEEKS, THIS SHOULD ALWAYS BE THE SUNDAY!!!!
+        	
+        	//SEE THE MOMENT DOCS SECTION 'DAY OF THE WEEK' THIS IS EASY!!
+        	
+        	// !!!!!!
+        	      	
         	start_on = moment(start_on);
         	if(moment(start_on).isValid() != false){
-        		event.set("start_on", start_on); 
+        		event.set("start_on", start_on); //SEE NOTE ABOVE
         	}      
          	
         	//set recurring type
