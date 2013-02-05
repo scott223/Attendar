@@ -25,18 +25,28 @@ exports.eventFunc = function () {
         createEvent: function (title, location, invites, start_on, recurring, repeat_every, repeat_on) {
         	var moment = require('moment');
         	var event = new Event();
-        	        	
+        	 console.log(title);       	
         	//set title
         	event.set("title", title);
         	
         	//set location
         	event.set("location", location);
         	
-        	//set invites
-        	
+        	//set invites, first remove non integers  
+        	if(invites != null){
+        		var checked_invites = invites;        	      	
+            	for (var i=0; i< checked_invites.length; i++){
+            		if(!isInteger(checked_invites[i])){
+            			checked_invites.splice(i, 1);
+            		}
+            	}
+            	
+            	event.set("invites", checked_invites);
+        	}   	
+        	        	
         	//set owner
-        	var currentUser = Parse.User.current();
-        	event.set("owner", currentUser);
+        	var currentUser = Parse.User.current();       
+        	//event.set("owner", currentUser);
         	
         	//set start on     
         	event.set('start_on', start_on);
@@ -51,7 +61,7 @@ exports.eventFunc = function () {
         	
         	//set repeat-on
         	
-        	
+        	return event;
         	
         },
 
