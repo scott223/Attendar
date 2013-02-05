@@ -22,15 +22,15 @@ exports.eventFunc = function () {
         //class methods
 
         //create recurring event
-        createEvent: function (title, recurring, repeat_every, repeat_on, owner, start_on, location, invites) {
+        createEvent: function (title, location, invites, start_on, recurring, repeat_every, repeat_on) {
         	var moment = require('moment');
         	var event = new Event();
-        	
-        	
+        	        	
         	//set title
         	event.set("title", title);
         	
         	//set location
+        	event.set("location", location);
         	
         	//set invites
         	
@@ -38,7 +38,8 @@ exports.eventFunc = function () {
         	var currentUser = Parse.User.current();
         	event.set("owner", currentUser);
         	
-        	//set start on
+        	//set start on     
+        	event.set('start_on', start_on);
         	
         	//set end on
         	
@@ -61,7 +62,7 @@ exports.eventFunc = function () {
          * @param location location of the event
          * @return Event on succes, error on failure
          */
-        createSingleEvent: function (name, datetime, location) {
+        createSingleEvent: function (title, datetime, location) {
             //instantiate new event
             var event = new Event();
 
@@ -69,7 +70,7 @@ exports.eventFunc = function () {
             var currentUser = Parse.User.current();
 
             //set data
-            event.set("name", name);
+            event.set("title", title);
             event.set("owner", currentUser);
             
             var expression = { };
@@ -90,7 +91,7 @@ exports.eventFunc = function () {
         },
 
         //edit event
-        editEvent: function (event, name, expression, owner, start, location) {
+        editEvent: function (event, title, expression, owner, start, location) {
 
         }
 

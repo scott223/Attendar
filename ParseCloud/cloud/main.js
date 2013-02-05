@@ -39,7 +39,7 @@ Parse.Cloud.define("registerNewUser", function (request, response) {
 //@param location location of event
 Parse.Cloud.define("createSingleEvent", function (request, response) {
 
-    var event = Event.createSingleEvent(request.params.name, request.params.datetime, request.params.location);
+    var event = Event.createSingleEvent(request.params.title, request.params.datetime, request.params.location);
 
     event.save(null, {
         success: function (event) {
@@ -54,7 +54,11 @@ Parse.Cloud.define("createSingleEvent", function (request, response) {
 /*
  * Create event, possible recurrent
  */
-Parse.Cloud.define("createEvent", function(request, response){
+Parse.Cloud.define("createEvent", function(request, response){	
+	var event = Event.createEvent(request.params);
+	
+	response.success(event);
+	
 	
 });
 
