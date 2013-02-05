@@ -21,18 +21,26 @@ exports.eventFunc = function () {
     }, {
         //class methods
 
+
         //create recurring event
+        
+        //TODO works for now, need ALLOT OF CHECKING!!
         createEvent: function (title, location, invites, start_on, recurring, repeat_every, repeat_on) {
+        	
         	var moment = require('moment');
+        	
         	var event = new Event();
-        	 console.log(title);       	
+        	  	
         	//set title
         	event.set("title", title);
         	
         	//set location
         	event.set("location", location);
-        	console.log(invites);
+        
         	//set invites, first remove non integers  
+        	
+        	
+        	/*
         	if(invites != null){
         		var checked_invites = invites;        	      	
             	for (var i=0; i< checked_invites.length; i++){
@@ -43,38 +51,25 @@ exports.eventFunc = function () {
             	event.set("invites", checked_invites);
         	}   	
         	        	
+        	*/
         	//set owner
         	
-        	var currentUser = Parse.User.current();       
+        	//var currentUser = Parse.User.current();       
         	//event.set("owner", currentUser);
         	
         	//set start on
-        	if(start_on == false){
-        		return null//impossible to set date withtou start
-        	}
-        	
-        	//start_on = new Date(start_on);
-        	//create date/moment object and check if supplied date is valid
-        	
-        	// !!!!!
-        	
-        	//TODO!!! WEEKLY AND MONTHLY REPEATS START DATE SHOULD ALWAYS BE THE FIRST DAY OF THAT WEEK OR MONTH 
-        	//FOR WEEKS, THIS SHOULD ALWAYS BE THE SUNDAY!!!!
-        	
-        	//SEE THE MOMENT DOCS SECTION 'DAY OF THE WEEK' THIS IS EASY!!
-        	
-        	// !!!!!!
+        	//if (!moment(start_on).isValid())
+        	//	return false;
+        	//}       	
         	      	
-        	start_on = moment(start_on);
-        	if(moment(start_on).isValid() != false){
-        		event.set("start_on", start_on); //SEE NOTE ABOVE
-        	}      
+        	event.set("start_on", moment(start_on).toDate());
          	
         	//set recurring type
             if(recurring == "single" || recurring == "daily" || recurring == "weekly" || recurring == "monthly"){
             	event.set("recurring", recurring);
             }
             
+            /*
             //set end on
             if(end_on != null && recurring != single){//single type has no end
             	//check if end on is valid date
@@ -98,12 +93,17 @@ exports.eventFunc = function () {
             		event.set("end_on", end_on);
             	}
             }
+            */
         	
-        	//set recurring
+        	//set repeat_every STILL NEED CHECK
+        	if (isNumber(repeat_every)) { 
+        		event.set("repeat_every", repeat_every);
+        		} else {
+        		return false;
+        	}
         	
-        	//set repeat-every
-        	
-        	//set repeat-on
+        	//set repeat-on STILL NEED CHECK
+        	event.set("repeat_on",repeat_on);
         	
         	return event;
         	
@@ -156,6 +156,6 @@ exports.eventFunc = function () {
      * Function to check if a var is a number
      */
     function isNumber (o) {
-    	  return ! isNaN (o-0);
-    	}
+    	return ! isNaN (o-0);	
+	}
 }

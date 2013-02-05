@@ -129,6 +129,7 @@ Parse.Cloud.define("registerNewUser", function (request, response) {
     usersModule.registerNewUser(response);
 });
 
+/* why needed??
 //Create event
 //@param name event name
 //@param datetime date and time of event
@@ -148,22 +149,25 @@ Parse.Cloud.define("createSingleEvent", function (request, response) {
 
 });
 
+*/
+
 
 /*
  * Create event, possibly recurrent
  */
 Parse.Cloud.define("createEvent", function (request, response) {
-    var event = Event.createEvent(request.params.title,
-    request.params.location,
-    request.params.invites,
-    request.params.start_on,
-    request.params.recurring,
-    request.params.repeat_every,
-    request.params.repeat_on);
+    var event = Event.createEvent(request.params.title, //string
+    
+    request.params.location, //string
+    request.params.invites, //array
+    request.params.start_on, //date
+    request.params.recurring, //string
+    request.params.repeat_every, //integer
+    request.params.repeat_on); //array
 
     event.save(null, {
         success: function (event) {
-            response.success('200');
+            response.success(event);
         },
         error: function (event, error) {
             response.error(error);
