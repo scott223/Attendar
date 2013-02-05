@@ -31,16 +31,15 @@ exports.eventFunc = function () {
         	
         	//set location
         	event.set("location", location);
-        	
+        	console.log(invites);
         	//set invites, first remove non integers  
         	if(invites != null){
         		var checked_invites = invites;        	      	
             	for (var i=0; i< checked_invites.length; i++){
-            		if(!isInteger(checked_invites[i])){
+            		if(!isNumber(checked_invites[i])){
             			checked_invites.splice(i, 1);
             		}
-            	}
-            	
+            	}            	
             	event.set("invites", checked_invites);
         	}   	
         	        	
@@ -48,12 +47,46 @@ exports.eventFunc = function () {
         	var currentUser = Parse.User.current();       
         	//event.set("owner", currentUser);
         	
-        	//set start on     
-        	event.set('start_on', start_on);
+        	//set start on
+        	if(start_on == false){
+        		return null//impossible to set date withtou start
+        	}
         	
-        	//set end on
-        	
+        	//start_on = new Date(start_on);
+        	//create date/moment object and check if supplied date is valid
+        	start_on = moment(start_on, "YYYY-MM-DDTHH:mm");
+        	if(moment(start_on).isValid() != false){
+        		event.set("start_on", start_on); 
+        	}      
+         	
         	//set recurring type
+            if(recurring == single || recurring == daily || recurring == monthly){
+            	event.set("recurring", recurring);
+            }
+            
+            //set end on
+            if(end_on != null && recurring != single){//single type has no end
+            	//check if end on is valid date
+            	end_on = moment(end_on, "YYYY-MM-DDTHH:mm");
+            	if(moment(end_on).isValid() != true){
+            		return false;
+            	}
+            	
+            	//check if end is more than one day in the future
+            	if(recurring == daily && end_on > moment(start_on).add('days', 1)){
+            		event.set("end_on", end_on);
+            	}
+            	
+            	//check if end is more than a week in the future
+            	if(recurring == weekly && end_on > moment(start_on).add('weeks', 1)){
+            		event.set("end_on", end_on);
+            	}
+            	
+            	//check if end is more than a month in the future
+            	if(recurring == monthly && end_on > moment(start_on).add('months', 1)){
+            		event.set("end_on", end_on);
+            	}
+            }
         	
         	//set recurring
         	
@@ -72,7 +105,7 @@ exports.eventFunc = function () {
          * @param location location of the event
          * @return Event on succes, error on failure
          */
-        createSingleEvent: function (title, datetime, location) {
+        createSingleEvent: function (title, start_on, location) {
             //instantiate new event
             var event = new Event();
 
@@ -82,14 +115,10 @@ exports.eventFunc = function () {
             //set data
             event.set("title", title);
             event.set("owner", currentUser);
+            event.set("recurring", single);
             
-            var expression = { };
-            
-            expression.recurring = 'single';
-            expression.datetime = new Date(datetime);
-            
-            event.set("expression", expression);
-
+            start_on = new Date(start_on);            
+            event.set("start_on", start_on);
             event.set("location", location);
 
             return event;
@@ -108,4 +137,11 @@ exports.eventFunc = function () {
     });
 
     return Event;
+    
+    /*
+     * Function to check if a var is a number
+     */
+    function isNumber (o) {
+    	  return ! isNaN (o-0);
+    	}
 }

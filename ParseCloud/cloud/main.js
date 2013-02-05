@@ -55,7 +55,13 @@ Parse.Cloud.define("createSingleEvent", function (request, response) {
  * Create event, possible recurrent
  */
 Parse.Cloud.define("createEvent", function(request, response){	
-	var event = Event.createEvent(request.params.title);
+	var event = Event.createEvent(request.params.title, 
+			request.params.location, 
+			request.params.invites, 
+			request.params.start_on, 
+			request.params.recurring, 
+			request.params.repeat_every, 
+			request.params.repeat_on);
 	
 	event.save(null, {
         success: function (event) {
