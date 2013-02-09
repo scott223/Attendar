@@ -34,7 +34,9 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
         event.location = mResults.get("location");
         event.datetime = datetime;
         event.invites = mResults.get("invites");
-             
+        event.eventid = mResults.id;
+        
+                     
         //var responsiveInvites = new Array();
         //var responses = { };
         

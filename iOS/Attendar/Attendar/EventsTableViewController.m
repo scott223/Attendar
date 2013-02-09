@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "EventsTableViewController.h"
+#import "EventDetailViewController.h"
 
 
 @interface EventsTableViewController ()
@@ -31,14 +32,14 @@
         self.title = @"Events";
         //self.tabBarItem.image = [UIImage imageNamed:@"cart.png"];
 
-        UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:ai];
+
         
         PFUser *currentUser = [PFUser currentUser];
         
         if (!currentUser.email)
         {
+            UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:ai];
             [ai startAnimating];
             
             NSLog(@"Asking cloud to fetch user data from Facebook");
@@ -60,50 +61,71 @@
             
         }
         
-        NSLog(@"Pulling new events");
+        [self refreshData];
         
-        [ai startAnimating];
-        
-        
-        
-        /*
-        
-        [PFCloud callFunctionInBackground:@"pullEvents" withParameters:[NSDictionary new] block:^(id object, NSError *error) {
-            
-            if (!error){
-                
-                NSLog(@"Event data recieved, parsing...");
-                
-                NSDictionary *results = [NSDictionary alloc];
-                results = object;
-                
-                eventList = nil;
-                eventList = [[NSMutableArray alloc] init];
-                
-                for (id key in results) {
-                    
-                    [eventList addObject:[results objectForKey:key]];
-                    
-                }
-                
-                [self.tableView reloadData];
-                [ai stopAnimating];
-                
-               // NSLog([events objectAtIndex:0]);
-            }
-            
-            
-            
-        }];
+ 
          
-         */
-         
-         
-    
-    
-    
     }
     return self;
+}
+
+- (void)stopRefreshAnimation
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                               target:self
+                               action:@selector(refreshData)];
+    self.navigationItem.rightBarButtonItem = button;
+}
+
+-(void)startRefreshAnimation
+{
+    UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:ai];
+    [ai startAnimating];
+}
+
+
+- (void)refreshData
+{
+    [self startRefreshAnimation];
+
+    NSLog(@"Retrieving... new events");
+    
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:[NSDate date] forKey:@"start"];
+    [params setObject:@"14" forKey:@"forDays"];
+    
+    [PFCloud callFunctionInBackground:@"retrieveEvents" withParameters:params block:^(id object, NSError *error) {
+        
+        if (!error){
+            
+            NSLog(@"Event data recieved, parsing...");
+            
+            eventList = nil;
+            eventList = [[NSMutableArray alloc] init];
+            
+            eventList = object;
+            
+            NSLog(@"%@\n", eventList);
+            
+            
+            //for (id key in results) {
+            
+            //    [eventList addObject:[results objectForKey:key]];
+            
+            //}
+            
+            [self.tableView reloadData];
+            [self stopRefreshAnimation];
+            
+            // NSLog([events objectAtIndex:0]);
+        }
+        
+        
+        
+    }];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -153,12 +175,16 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM HH:mm"];
+    
     cell.textLabel.text = [[eventList objectAtIndex:[indexPath row]] objectForKey:@"title"];
+    cell.detailTextLabel.text = [dateFormatter stringFromDate:[[eventList objectAtIndex:[indexPath row]] objectForKey:@"datetime"]];
     
     return cell;
 }
@@ -206,13 +232,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+
+     EventDetailViewController *detailViewController = [[EventDetailViewController alloc] initWithNibName:@"EventDetailViewController" bundle:nil];
+    
+    detailViewController.event = [eventList objectAtIndex:[indexPath row]];
+    
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+     
 }
 
 @end

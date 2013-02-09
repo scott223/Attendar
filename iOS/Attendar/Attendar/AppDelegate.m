@@ -42,6 +42,9 @@
         NSString *name = [currentUser objectForKey:@"username"];
         NSLog(@"User (%@) already present, no login needed, pushing  navigator", name);
         
+        [[PFUser currentUser] setObject:[NSDate date] forKey:@"lastLogin"];
+        [[PFUser currentUser] saveInBackground];
+        
         [self pushTabBar];
         
     } else {
@@ -62,6 +65,9 @@
                 
             } else {
                 NSLog(@"User logged in through Facebook, pushing navigator");
+                
+                [[PFUser currentUser] setObject:[NSDate date] forKey:@"lastLogin"];
+                [[PFUser currentUser] saveInBackground];
                 
                 [self pushTabBar];
                 
@@ -88,7 +94,7 @@
         
     }];
     
-    */
+ 
     
     
     [PFCloud callFunctionInBackground:@"retrieveEvents" withParameters:params block:^(id object, NSError *error) {
@@ -96,6 +102,8 @@
         NSLog(@"retrieved events: %@",object);
         
     }];
+     
+    */
 
     return YES;
 }
