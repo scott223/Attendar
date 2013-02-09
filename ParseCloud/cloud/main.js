@@ -20,23 +20,64 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
     if ((request.params.forDays < 1) || (request.params.forDays > 100) || (!request.params.forDays)) {
         response.error("Invalid forDays. This has to be 0 < int < 101");
     }
+
     var nowMoment = moment(request.params.start); //USE THE TIMEZONE FROM THE USER!!!!!
     var endMoment = moment(request.params.start).add('days', request.params.forDays);
+	
+    
     var Events = new Array();
+    
+    function addEvent(mResults,datetime) {
+    
+		var event = {};
+        event.title = mResults.get("title");
+        event.location = mResults.get("location");
+        event.datetime = datetime;
+        event.invites = mResults.get("invites");
+             
+        //var responsiveInvites = new Array();
+        //var responses = { };
+        
+        //var relation = mResults.relation("responses");
+        
+        //var queryR = new Parse.Query(Response);
+  		//queryI.equalTo("datetime",datetime);
+		//queryR.equalTo("event",mResults);
+		
+		//console.log(queryR);
+		
+		//relation.query().find({
+  		//	success: function(results) {
+    	//		console.log("Successfully retrieved " + results.length + " scores.");
+  		//	},
+  		//	error: function(error) {
+    	//		console.log("Error: " + error.code + " " + error.message);
+  		//	}
+		//});
+		
+        Events.push(event);
+    }
+
     //var currentUser = Parse.User.current();
+    var currentUser = { };
+    currentUser.fbID = "1";
+    currentUser.name = "a";
+    
     var query = new Parse.Query(Event);
+    //query.include("responses");
     //query.equalTo("owner",currentUser); //should only return events that somebody owns or is invited to!
+    var usrObj = { };
+    usrObj.name = currentUser.name;
+    usrObj.fbID = currentUser.fbID;
+    
+    //query.containedIn("invites",new Array(usrObj));
     query.find({
         success: function (results) {
             for (var key in results) {
                 if (results[key].get("recurring") == "single") { //SINGLE EVENT
-                    var eventDate = results[key].get("start_on");
+                    var eventDate = moment(results[key].get("start_on"));
                     if ((eventDate >= nowMoment) && (eventDate <= endMoment)) { //is within timespan
-                        var event = {};
-                        event.title = results[key].get("title");
-                        event.location = results[key].get("location");
-                        event.datetime = eventDate.toDate();
-                        Events.push(event);
+                        addEvent(results[key],eventDate.toDate());
                     } //end if
                 } //END SINGLE if
                 if (results[key].get("recurring") == "daily") { //daily
@@ -49,11 +90,8 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
                         var i = diffDays;
                         while (moment(results[key].get("start_on")).add('days', (i * results[key].get("repeat_every"))) <= endMoment) { //as long as we have not reached our endMoment, create new instance
                             if (moment(results[key].get("start_on")).add('days', (i * results[key].get("repeat_every"))) >= nowMoment) { //check if this new instance is after our now moment
-                                var event = {};
-                                event.title = results[key].get("title");
-                                event.location = results[key].get("location");
-                                event.datetime = moment(results[key].get("start_on")).add('days', (i * results[key].get("repeat_every"))).toDate(); //calculate new instance date
-                                Events.push(event); //add it
+                                var eventDate = moment(results[key].get("start_on")).add('days', (i * results[key].get("repeat_every")));                            
+                       			addEvent(results[key],eventDate.toDate());
                             } //end if
                             i++;
                         }
@@ -72,11 +110,7 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
                             for (var day in instanceWeekDays) {
                                 var eventDate = moment(results[key].get("start_on")).add('weeks', (i * results[key].get("repeat_every"))).day(day).hours(instanceWeekDays[day].h).minutes(instanceWeekDays[day].m);
                                 if ((eventDate >= nowMoment) && (eventDate <= endMoment)) { //is within timespan sanity check
-                                    var event = {};
-                                    event.title = results[key].get("title");
-                                    event.location = results[key].get("location");
-                                    event.datetime = eventDate.toDate();
-                                    Events.push(event); //add it
+                       				addEvent(results[key],eventDate.toDate());
                                 }
                             }
                             i++;
@@ -96,11 +130,7 @@ Parse.Cloud.define("retrieveEvents", function (request, response) {
                             for (var day in instanceMonthDays) {
                                 var eventDate = moment(results[key].get("start_on")).add('months', (i * results[key].get("repeat_every"))).date(day).hours(instanceMonthDays[day].h).minutes(instanceMonthDays[day].m);
                                 if ((eventDate >= nowMoment) && (eventDate <= endMoment)) { //is within timespan sanity check
-                                    var event = {};
-                                    event.title = results[key].get("title");
-                                    event.location = results[key].get("location");
-                                    event.datetime = eventDate.toDate();
-                                    Events.push(event); //add it
+           							addEvent(results[key],eventDate.toDate());
                                 }
                             }
                             i++;
@@ -174,4 +204,82 @@ Parse.Cloud.define("createEvent", function (request, response) {
         }
     });
 
+});
+
+Parse.Cloud.define("updateEventResponse", function (request,rresponse) {
+
+	var moment = require('moment');
+	
+	var Response = Parse.Object.extend("Response");
+	var Event = Parse.Object.extend("Event");
+	
+	var eventQuery = new Parse.Query(Event);
+	
+	eventQuery.get(request.params.eventID, {
+		success: function(event) {
+		
+			//first find out if there is already a response
+	
+			var query = new Parse.Query(Response);
+	
+			query.equalTo("datetime",moment(request.params.datetime).toDate());
+			query.equalTo("event",event);
+			query.equalTo("inviteeFB",request.params.inviteeFB);
+	
+			console.log(query);
+	
+			query.first({
+				success: function(response) {
+					if (!response) {
+						var response = new Response();
+						
+						//var ACL = new Parse.ACL();
+						
+						//ACL.setPublicWriteAccess(true);
+						
+						//response.setACL(ACL);
+												
+						console.log("no reponse yet, creating...");
+					} else {
+						console.log("already a response!");
+					}			
+			
+					response.set("event",event);
+					response.set("datetime",moment(request.params.datetime).toDate());
+					response.set("inviteeFB",request.params.inviteeFB);
+					response.set("response",request.params.response);
+	
+					response.save(null, {
+  						success: function(response) {
+  						
+  							var relation = event.relation("responses");
+  							relation.add(response);
+  							event.save(null, {
+  								success: function(event) {
+  								    rresponse.success(response);
+  								
+  								},
+  								error: function(response, error) {
+									rresponse.error(error);
+  								}
+  							});
+    						
+  						},
+  						error: function(response, error) {
+							rresponse.error(error);
+  						}
+					});
+				},
+				error: function(error) {
+					rresponse.error(error);
+				}
+			});
+			
+		},
+		error: function(object, error) {
+			rresponse.error("This event does not exist.");
+		}
+	});
+			
+	
 });

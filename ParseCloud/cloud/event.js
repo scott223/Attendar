@@ -21,7 +21,6 @@ exports.eventFunc = function () {
     }, {
         //class methods
 
-
         //create recurring event
         
         //TODO works for now, need ALLOT OF CHECKING!!
@@ -32,13 +31,21 @@ exports.eventFunc = function () {
         	var event = new Event();
         	  	
         	//set title
+        	//TODO: title should be string and not to long
         	event.set("title", title);
         	
         	//set location
+    		//TODO: location should be string and not to long
         	event.set("location", location);
         
-        	//set invites, first remove non integers  
-        	
+        	//set invites
+        	//TODO: invites should look like this (array with objects!)
+        	// [
+        	//	{"12345":"Scott Brugmans"},
+        	// 	{"38477":"Bouke Nederstigt"}
+        	// ]
+        		
+        	event.set("invites",invites);
         	
         	/*
         	if(invites != null){
@@ -52,8 +59,9 @@ exports.eventFunc = function () {
         	}   	
         	        	
         	*/
-        	//set owner
         	
+        	//set owner
+        	//TODO: check if user is present
         	//var currentUser = Parse.User.current();       
         	//event.set("owner", currentUser);
         	
@@ -61,7 +69,7 @@ exports.eventFunc = function () {
         	//if (!moment(start_on).isValid())
         	//	return false;
         	//}       	
-        	      	
+        	//TODO: should check if this is a correct date      	
         	event.set("start_on", moment(start_on).toDate());
          	
         	//set recurring type
@@ -95,7 +103,8 @@ exports.eventFunc = function () {
             }
             */
         	
-        	//set repeat_every STILL NEED CHECK
+        	//set repeat_every
+        	//TODO should be a number (probably between 1 and 5 or something like that)
         	if (isNumber(repeat_every)) { 
         		event.set("repeat_every", repeat_every);
         		} else {
@@ -103,6 +112,17 @@ exports.eventFunc = function () {
         	}
         	
         	//set repeat-on STILL NEED CHECK
+        	//TODO needs to be in the formate
+        	// {
+        	//	{"2":{
+        	//		"h":"4",
+        	//		"m":"30"}
+        	//		},
+        	// 	{"5":{
+        	//		"h":"2",
+        	//		"m":"10"}
+        	//		}
+        	// }
         	event.set("repeat_on",repeat_on);
         	
         	return event;

@@ -25,6 +25,7 @@
         
         eventList = [[NSMutableArray alloc] init];
         
+        
         [[self navigationItem] setTitle:@"Events"];
         
         self.title = @"Events";
