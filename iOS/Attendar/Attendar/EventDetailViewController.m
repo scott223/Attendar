@@ -9,7 +9,6 @@
 #import <Parse/Parse.h>
 #import "EventDetailViewController.h"
 
-
 @interface EventDetailViewController ()
 
 @end

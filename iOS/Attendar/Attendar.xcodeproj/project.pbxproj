@@ -32,6 +32,10 @@
 		D226C17216BB14A300B2C435 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226C17116BB14A300B2C435 /* SystemConfiguration.framework */; };
 		D23E7D8116C6EF9A00ADA76A /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E7D7F16C6EF9A00ADA76A /* EventDetailViewController.m */; };
 		D23E7D8216C6EF9A00ADA76A /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D23E7D8016C6EF9A00ADA76A /* EventDetailViewController.xib */; };
+		D268B61416C7AD170047090A /* AddEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D268B61216C7AD170047090A /* AddEventViewController.m */; };
+		D268B61516C7AD170047090A /* AddEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D268B61316C7AD170047090A /* AddEventViewController.xib */; };
+		D268B62016C7F5420047090A /* RecurrenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D268B61E16C7F5420047090A /* RecurrenceViewController.m */; };
+		D268B62116C7F5420047090A /* RecurrenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D268B61F16C7F5420047090A /* RecurrenceViewController.xib */; };
 		D296578B16BE672E00017429 /* EventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D296578916BE672E00017429 /* EventsTableViewController.m */; };
 		D296578C16BE672E00017429 /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D296578A16BE672E00017429 /* EventsTableViewController.xib */; };
 		D296579016BE6BE900017429 /* GroupsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D296578E16BE6BE900017429 /* GroupsTableViewController.m */; };
@@ -71,6 +75,12 @@
 		D23E7D7E16C6EF9A00ADA76A /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		D23E7D7F16C6EF9A00ADA76A /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
 		D23E7D8016C6EF9A00ADA76A /* EventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
+		D268B61116C7AD170047090A /* AddEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventViewController.h; sourceTree = "<group>"; };
+		D268B61216C7AD170047090A /* AddEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventViewController.m; sourceTree = "<group>"; };
+		D268B61316C7AD170047090A /* AddEventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddEventViewController.xib; sourceTree = "<group>"; };
+		D268B61D16C7F5410047090A /* RecurrenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecurrenceViewController.h; path = ../RecurrenceViewController.h; sourceTree = "<group>"; };
+		D268B61E16C7F5420047090A /* RecurrenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecurrenceViewController.m; path = ../RecurrenceViewController.m; sourceTree = "<group>"; };
+		D268B61F16C7F5420047090A /* RecurrenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecurrenceViewController.xib; path = ../RecurrenceViewController.xib; sourceTree = "<group>"; };
 		D296578816BE672E00017429 /* EventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTableViewController.h; sourceTree = "<group>"; };
 		D296578916BE672E00017429 /* EventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewController.m; sourceTree = "<group>"; };
 		D296578A16BE672E00017429 /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +164,8 @@
 		D226C13A16BB143200B2C435 /* Attendar */ = {
 			isa = PBXGroup;
 			children = (
+				D268B61C16C7EEB70047090A /* EventDetails */,
+				D268B61B16C7EE950047090A /* AddEvent */,
 				D226C14316BB143200B2C435 /* AppDelegate.h */,
 				D226C14416BB143200B2C435 /* AppDelegate.m */,
 				D296579216BE6D8700017429 /* SettingsViewController.h */,
@@ -162,9 +174,6 @@
 				D296578816BE672E00017429 /* EventsTableViewController.h */,
 				D296578916BE672E00017429 /* EventsTableViewController.m */,
 				D296578A16BE672E00017429 /* EventsTableViewController.xib */,
-				D23E7D7E16C6EF9A00ADA76A /* EventDetailViewController.h */,
-				D23E7D7F16C6EF9A00ADA76A /* EventDetailViewController.m */,
-				D23E7D8016C6EF9A00ADA76A /* EventDetailViewController.xib */,
 				D296578D16BE6BE900017429 /* GroupsTableViewController.h */,
 				D296578E16BE6BE900017429 /* GroupsTableViewController.m */,
 				D296578F16BE6BE900017429 /* GroupsTableViewController.xib */,
@@ -185,6 +194,29 @@
 				D226C14A16BB143200B2C435 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D268B61B16C7EE950047090A /* AddEvent */ = {
+			isa = PBXGroup;
+			children = (
+				D268B61D16C7F5410047090A /* RecurrenceViewController.h */,
+				D268B61E16C7F5420047090A /* RecurrenceViewController.m */,
+				D268B61F16C7F5420047090A /* RecurrenceViewController.xib */,
+				D268B61116C7AD170047090A /* AddEventViewController.h */,
+				D268B61216C7AD170047090A /* AddEventViewController.m */,
+				D268B61316C7AD170047090A /* AddEventViewController.xib */,
+			);
+			name = AddEvent;
+			sourceTree = "<group>";
+		};
+		D268B61C16C7EEB70047090A /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				D23E7D7E16C6EF9A00ADA76A /* EventDetailViewController.h */,
+				D23E7D7F16C6EF9A00ADA76A /* EventDetailViewController.m */,
+				D23E7D8016C6EF9A00ADA76A /* EventDetailViewController.xib */,
+			);
+			name = EventDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +278,8 @@
 				D296579116BE6BE900017429 /* GroupsTableViewController.xib in Resources */,
 				D296579616BE6D8700017429 /* SettingsViewController.xib in Resources */,
 				D23E7D8216C6EF9A00ADA76A /* EventDetailViewController.xib in Resources */,
+				D268B61516C7AD170047090A /* AddEventViewController.xib in Resources */,
+				D268B62116C7F5420047090A /* RecurrenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +296,8 @@
 				D296579016BE6BE900017429 /* GroupsTableViewController.m in Sources */,
 				D296579516BE6D8700017429 /* SettingsViewController.m in Sources */,
 				D23E7D8116C6EF9A00ADA76A /* EventDetailViewController.m in Sources */,
+				D268B61416C7AD170047090A /* AddEventViewController.m in Sources */,
+				D268B62016C7F5420047090A /* RecurrenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

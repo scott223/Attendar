@@ -62,8 +62,8 @@ exports.eventFunc = function () {
         	
         	//set owner
         	//TODO: check if user is present
-        	//var currentUser = Parse.User.current();       
-        	//event.set("owner", currentUser);
+        	var currentUser = Parse.User.current();       
+        	event.set("owner", currentUser);
         	
         	//set start on
         	//if (!moment(start_on).isValid())

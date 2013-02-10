@@ -10,6 +10,8 @@
 #import "EventsTableViewController.h"
 #import "EventDetailViewController.h"
 
+#import "AddEventViewController.h"
+
 
 @interface EventsTableViewController ()
 
@@ -32,6 +34,11 @@
         self.title = @"Events";
         //self.tabBarItem.image = [UIImage imageNamed:@"cart.png"];
 
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                   target:self
+                                   action:@selector(addEvent)];
+        self.navigationItem.leftBarButtonItem = addButton;
 
         
         PFUser *currentUser = [PFUser currentUser];
@@ -97,6 +104,8 @@
     [params setObject:[NSDate date] forKey:@"start"];
     [params setObject:@"14" forKey:@"forDays"];
     
+    /*
+    
     [PFCloud callFunctionInBackground:@"retrieveEvents" withParameters:params block:^(id object, NSError *error) {
         
         if (!error){
@@ -126,6 +135,8 @@
         
         
     }];
+     
+     */
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -239,6 +250,29 @@
     
      [self.navigationController pushViewController:detailViewController animated:YES];
      
+}
+
+- (void)addEvent
+{
+    AddEventViewController *addEvent = [[AddEventViewController alloc] initWithNibName:@"AddEventViewController" bundle:nil];
+    
+    UINavigationController *addEventNavigation = [[UINavigationController alloc] initWithRootViewController:addEvent];
+    
+    addEvent.delegate = self;
+    
+    [self presentViewController:addEventNavigation animated:YES completion:nil];
+    
+}
+
+- (void)addEventViewController:(AddEventViewController *)addEventViewController didAddEvent:(NSMutableDictionary *)event {
+    
+    if (event) {
+        [self refreshData];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 
 @end

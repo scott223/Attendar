@@ -123,6 +123,7 @@
     
     UINavigationController *navGroups = [[UINavigationController alloc] initWithRootViewController:groups];
     
+    
     SettingsViewController *settings = [[SettingsViewController alloc] initWithNibName:@"SettingsViewController" bundle:nil];
     
     NSArray *controllers = [NSArray arrayWithObjects:navEvents, navGroups, settings, nil];

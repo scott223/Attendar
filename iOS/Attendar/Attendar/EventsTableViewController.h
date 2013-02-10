@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddEventViewController.h";
 
-@interface EventsTableViewController : UITableViewController {
+@interface EventsTableViewController : UITableViewController  <EventAddDelegate> {
     NSMutableArray *eventList;
 }
 
